@@ -5,6 +5,7 @@ const timer5 = document.querySelector('#timer-5')
 const minute = document.querySelector('#minute')
 const second = document.querySelector('#second')
 const msgFooter = document.querySelector('footer')
+const refreshButton = document.querySelector('.refresh-button')
 
 let timerMinute = 1;
 let timerSecond = 1;
@@ -14,7 +15,15 @@ let timer40Active = false;
 let timer15Active = false;
 let timer5Active = false;
 
-timer40.addEventListener('click', ()=>{
+minute.textContent = '00'
+second.textContent = '00'
+
+refreshButton.addEventListener('click', ()=>{
+        window.location.reload()
+})
+
+timer40.addEventListener('click', (event)=>{
+    event.preventDefault()
     isClicked = true;
     timerMinute = 39;
     timerSecond = 59;
@@ -27,7 +36,8 @@ timer40.addEventListener('click', ()=>{
     timer5.style.border = 'none'
     msgFooter.textContent = 'Dica: Desligue o celular e qualquer distração!'
 })
-timer15.addEventListener('click', ()=>{
+timer15.addEventListener('click', (event)=>{
+    event.preventDefault()
     isClicked = true;
     timerMinute = 14;
     timerSecond = 59;
@@ -39,7 +49,8 @@ timer15.addEventListener('click', ()=>{
     timer15.style.border = '2px solid #fff'
     timer5.style.border = 'none'
 })
-timer5.addEventListener('click', ()=>{
+timer5.addEventListener('click', (event)=>{
+    event.preventDefault()
     isClicked = true;
     timerMinute = 4;
     timerSecond = 59;
